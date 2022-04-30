@@ -126,3 +126,34 @@ function registerForm() {
     maskChar: '_',
   });
 }
+<<<<<<< Updated upstream
+=======
+
+function send_data(path, message) {
+  console.log(message);
+  const header = {
+    header: 'application/x-www-form-urlencoded',
+  };
+
+  const data = {
+    phone: document.querySelector('#phone').value,
+    password: document.querySelector('#password').value,
+  };
+
+  const data_send = JSON.stringify(data);
+  const send = sendData(data_send, path, header.header);
+  send(data_send, path, header.header)
+    .then(response => {
+      if (response !== 0) {
+        window.setTimeout(function () {
+          window.location = '/';
+        }, 500);
+      } else {
+        Swal.showValidationMessage(message);
+      }
+    })
+    .catch(error => {
+      console.log(error);
+    });
+}
+>>>>>>> Stashed changes
