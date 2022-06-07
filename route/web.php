@@ -6,13 +6,13 @@ $router = new Router();
 $router->add('', ['controller' => 'HomeController', 'action' => 'index']);
 $router->add('selector', ['controller' => 'HomeController', 'action' => 'selectorGames']);
 $router->add('selector-genres', ['controller' => 'HomeController', 'action' => 'selectorGenres']);
+$router->add('selector-companies', ['controller' => 'HomeController', 'action' => 'selectorCompanies']);
 
 /*=== АВТОРИЗАЦИЯ, РЕГИСТРАЦИЯ, ВЫХОД ИЗ АККАУНТА ===*/
 $router->add('auth', ['controller' => 'LoginController', 'action' => 'auth']);
 $router->add('logout', ['controller' => 'LoginController', 'action' => 'logout']);
 $router->add('get_auth', ['controller' => 'LoginController', 'action' => 'getAuthId']);
 $router->add('register', ['controller' => 'RegisterController', 'action' => 'store']);
-$router->add('login', ['controller' => 'RegisterController', 'action' => 'get']);
 
 /*=== РАБОТА С ИГРАМИ ===*/
 $router->add('games/list', ['controller' => 'GameController', 'action' => 'index']);
@@ -60,7 +60,7 @@ $router->add('symlinks', ['controller' => 'SymlinkController', 'action' => 'gene
 $router->add('logs', ['controller' => 'LoggerController', 'action' => 'index']);
 
 /*=== РАБОТА С БАЛАНСОМ ===*/
-$router->add('expenses/list', ['controller' => 'ExpenseController', 'action' => 'index']);
+$router->add('expenses/main?{id}', ['controller' => 'ExpenseController', 'action' => 'index']);
 $router->add('expenses/show', ['controller' => 'ExpenseController', 'action' => 'showStore']);
 $router->add('expenses/confirm', ['controller' => 'ExpenseController', 'action' => 'confirm']);
 $router->add('expenses/replenish', ['controller' => 'ExpenseController', 'action' => 'replenish']);
